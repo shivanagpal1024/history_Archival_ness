@@ -99,9 +99,9 @@ def create_input_files():
         fir_qual='B6744PRD'
     else:
         fir_qual='F6744DEV'
-    for i in range(1,2):
+    for i in range(1,26):
         folders = [f'U{runtype}{i}']
-    for i in range(1,2):
+    for i in range(1,26):
         for folder in folders:
             folder_path=f'{output_dir_path}/{folder}'
             succ_path=f'{folder_path}/H_{table}_{folder}.SUCCESS'
@@ -384,8 +384,8 @@ if __name__ == '__main__':
     dateTimeObj1 = datetime.now(IST)
     timestampStr = dateTimeObj1.strftime("%d-%b-%Y (%H:%M:%S.%f)")
     log.info(f"Start Time:{timestampStr}")
-    get_sys_argument()
     fetch_ness_logging_url()
+    get_sys_argument()
     create_output_folder()
     create_input_files()
     processes = []
